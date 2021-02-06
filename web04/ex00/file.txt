@@ -1,0 +1,5 @@
+Hola
+
+Esto es un archivo de prueba que será leído desde ruby.
+
+ADIOOOOOOOS
