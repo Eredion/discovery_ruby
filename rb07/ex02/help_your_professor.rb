@@ -3,9 +3,9 @@
 def media hash
   n = 0
   hash.each do |a, b| 
-    n += b
+    n += b.to_f
   end
-  return (n / hash.length)
+  return (n / hash.length).to_f
 end
 
 class_3B = {

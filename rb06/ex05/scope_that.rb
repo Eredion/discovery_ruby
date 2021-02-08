@@ -8,4 +8,5 @@ i = 1
 puts i
 puts "El numero es: " + i.to_s
 puts "LLamo a la funcion"
+add_one(i)
 puts "El numero es: " + i.to_s

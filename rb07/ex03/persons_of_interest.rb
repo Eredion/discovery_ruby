@@ -1,7 +1,7 @@
 #!/usr/bin/ruby
 
 def nacimientos_famosos hash
-  hash = hash.sort_by{|a, b| b[:fecha_de_nacimiento]}.to_h
+  hash = hash.sort_by{|a, b| b[:fecha_de_nacimiento]}
   hash.each do |a, b|
     puts "#{b[:nombre]} es una gran científica nacida en #{b[:fecha_de_nacimiento]}."
   end
