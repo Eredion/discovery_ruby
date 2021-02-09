@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+            <form>
+                    <p>Archivo a modificar</p>
+                    <input name="file" type="text" placeholder="escriba aquí..."></input>
+                    <p>Número de línea</p>    
+                    <input name="line_n" type="number" placeholder="escriba aquí..."></input>
+                    <p>Nueva línea</p>    
+                    <input name="new_line" type="text" placeholder="escriba aquí..."></input>
+                    <input type="submit" value="Validar"></input>
+                    <p> Tras validar, se sustituirá la línea indicada por la nueva<p>
+            </form>
+            <%=
+              
+                if (servlet_request.query['file'] && servlet_request.query['line_n'] && servlet_request.query['new_line'])
+                  n = servlet_request.query['line_n'].to_i
+                  arr = []
+                  archivo = File.open("/Users/asegovia/Desktop/discovery_ruby/web04/ex03/" + servlet_request.query['file'], 'r')
+                  archivo.each{|line| arr.push(line)}
+                  archivo.close
+                  arr[n - 1] = servlet_request.query['new_line'] + "\n"
+                  archivo = File.open("/Users/asegovia/Desktop/discovery_ruby/web04/ex03/" + servlet_request.query['file'], 'w')
+                  arr.each{|i| archivo << i}
+                  archivo.close
+              end
+            %>
+    </body>
+</html>

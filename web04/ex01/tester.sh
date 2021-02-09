@@ -1,4 +1,3 @@
-#!/usr/bin/sh
 
 echo "Primero, borramos el arthivo test.txt por si existe\n"
 rm -rf ./test.txt

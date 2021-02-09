@@ -12,17 +12,18 @@
 <body>
 	<p id="parrafo">Amo a ve si cambiamo el colo</p>
 	<script>
-		document.getElementById('parrafo').onclick = changeColor; 
+		document.getElementById('parrafo').onclick = changeColor;
+		console.log("Cambio");
 		let currentColor = "cyan";
-		function changeColor() { 
-        i(currentColor == "cyan"){ 
-           document.getElementById('parrafo').style.background = "yellow";
-           currentColor = "yellow";
-        } else {
-           document.getElementById('parrafo').style.background = "cyan";
-           currentColor = "cyan";
-        } 
-    }
+		function changeColor(){ 
+			if (currentColor == "cyan"){ 
+				document.getElementById('parrafo').style.background = "yellow";
+				currentColor = "yellow";
+		    } else {
+				document.getElementById('parrafo').style.background = "cyan";
+				currentColor = "cyan";
+			} 
+		}
 </script>
 
 	</script>

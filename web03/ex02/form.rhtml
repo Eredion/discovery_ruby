@@ -7,14 +7,30 @@
                     <p>Nombre</p>
                     <input name="nombre" type="text" placeholder="escriba aquí..."></input>
                     <p>Apellido</p>    
-                    <input name="apellido" type="text" placeholder="escriba aquí..."></input>
-                    <input name="edad" type="text" placeholder="escriba aquí..."></input>
-                    <input type="submit" value="Validar"></input>
+					<input name="apellido" type="text" placeholder="escriba aquí..."></input>
+					<p>Edad</p>
+					<input name="edad" type="text" placeholder="escriba aquí..."></input>
+                    <input name="enviar" type="submit" value="Validar"></input>
             </form>
-            <%=
-                if (servlet_request.query['nombre'] && servlet_request.query['apellido'])
-                    "Hola, " + servlet_request.query['nombre'] + " " + servlet_request.query['apellido']
-                end
-            %>
+			<%
+				if servlet_request.query['nombre'] && servlet_request.query['apellido'] && servlet_request.query['edad']
+					ppl = [["Cipriano","Villagarcia",57],["Capitan","Jerezano",54],["Jan","Luknar",23]]
+					ppl.sort
+					nombre = servlet_request.query['nombre']
+					edad = servlet_request.query['edad'].to_i
+					masq = 0
+					menosq = 0
+					ppl.each do |z|
+						if z[2] > edad
+							menosq += 1
+						end
+						if z[2] < edad
+							masq += 1
+						end
+					end
+				end
+			%>
+			<%=	"Hola, #{nombre}, tienes más edad que #{masq} personas y menos edad que #{menosq} personas."%>
     </body>
 </html>
+

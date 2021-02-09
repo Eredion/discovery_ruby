@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+            <form>
+                    <p>Nombre</p>
+                    <input name="nombre" type="text" placeholder="escriba aquí..."></input>
+                    <p>Apellido</p>    
+                    <input name="apellido" type="text" placeholder="escriba aquí..."></input>
+                    <input type="submit" value="Validar"></input>
+                    <p> Tras validar, se guardarán los datos en un archivo <p>
+            </form>
+            <%=
+              if (servlet_request.query['nombre'] && servlet_request.query['apellido'])
+                "Hola, " + servlet_request.query['nombre'] + " " + servlet_request.query['apellido']
+                "Hola, he escrito los datos del formulario en un archivo."
+                file = File.open("/Users/asegovia/Desktop/discovery_ruby/web04/ex02/output.txt", "w")
+                file << "Nombre: " + servlet_request.query['nombre'] + "\nApellido: " + servlet_request.query['apellido'] + "\n"
+                file.close
+                puts servlet_request.query['nombre']
+              end
+            %>
+    </body>
+</html>
